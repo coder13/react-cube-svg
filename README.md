@@ -15,12 +15,11 @@ npm install --save react-cube-svg
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-cube-svg'
-import 'react-cube-svg/dist/index.css'
+import Cube from 'react-cube-svg'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Cube />
   }
 }
 ```

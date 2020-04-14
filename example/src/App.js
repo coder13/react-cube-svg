@@ -3,12 +3,21 @@ import React from 'react'
 import { Cube } from 'react-cube-svg'
 import 'react-cube-svg/dist/index.css'
 
-const scramble = "D' F B L' B2 D F2 L U L2 D2 B2 L' B2 R' B2 L' D2 L F2 L"
-
 const App = () => {
+  const [scramble, setScramble] = React.useState('');
+
+  const handleChange = (e) => {
+    setScramble(e.target.value);
+  }
+
   return (
     <div>
-      <p>Should represent {scramble}</p>
+      <form className="form">
+        <label>
+          Scramble:
+          <input type="text" name="scramble" value={scramble} onChange={handleChange} />
+        </label>
+      </form>
       <Cube scramble={scramble}/>
     </div>
   )
