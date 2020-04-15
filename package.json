@@ -1,6 +1,6 @@
 {
   "name": "react-cube-svg",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Generates SVG visualizations of various twisty puzzles",
   "author": "coder13",
   "license": "MIT",
