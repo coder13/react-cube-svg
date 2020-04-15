@@ -11,8 +11,8 @@ const Orange = '#FFA100'
 const Blue = '#0000F2'
 const Green = '#00D800'
 
-const Sticker = ({ x, y, style }) => {
-  return <rect x={x} y={y} width={1} height={1} style={style} />
+const Sticker = ({ x, y, size, style }) => {
+  return <rect x={x} y={y} width={size} height={size} style={style} />
 }
 
 Sticker.propTypes = {
@@ -20,15 +20,16 @@ Sticker.propTypes = {
   y: PropTypes.number,
 }
 
-const Face = ({ x, y, lineColor, lineWidth, state }) => {
+const Face = ({ x, y, puzzle, lineColor, lineWidth, state, size }) => {
   return (
     <React.Fragment>
       {state.map((row, _x) =>
         state.map((col, _y) => (
           <Sticker
-            key={_x * 3 + _y}
-            x={x + _x}
-            y={y + _y}
+            key={_x * puzzle + _y}
+            x={size + x + _x * size + (1 - 2 * size)}
+            y={size + y + _y * size + (1 - 2 * size)}
+            size={size}
             style={{
               fill: state[_y][_x],
               stroke: lineColor,
@@ -47,9 +48,19 @@ Face.propTypes = {
   state: PropTypes.arrayOf(PropTypes.array).isRequired,
   lineColor: PropTypes.string.isRequired,
   lineWidth: PropTypes.number.isRequired,
+  puzzle: PropTypes.number.isRequired,
+  size: PropTypes.size,
 }
 
-const Cube = ({ scramble, size, colorScheme, lineColor, lineWidth }) => {
+const Cube = ({
+  scramble,
+  puzzle,
+  size,
+  colorScheme,
+  lineColor,
+  lineWidth,
+  spacing,
+}) => {
   const state = new CubeState(scramble)
 
   const getFace = (f) =>
@@ -89,12 +100,14 @@ const Cube = ({ scramble, size, colorScheme, lineColor, lineWidth }) => {
   ]
 
   return (
-    <svg width={size * 10} height={size * 10} viewBox={`0 0 ${24} ${24}`}>
+    <svg width={size} height={size} viewBox={`0 0 ${puzzle * 4} ${puzzle * 4}`}>
       {faces.map(({ face, x, y }) => (
         <Face
           key={face}
           x={x}
           y={y}
+          puzzle={puzzle}
+          size={spacing}
           state={getFace(face)}
           lineColor={lineColor}
           lineWidth={lineWidth}
@@ -109,8 +122,6 @@ Cube.propTypes = {
   puzzle: PropTypes.number,
   size: PropTypes.number,
   lineWidth: PropTypes.number,
-  editable: PropTypes.bool,
-  rotate: PropTypes.string,
   colorScheme: PropTypes.shape({
     up: PropTypes.string,
     down: PropTypes.string,
@@ -120,15 +131,14 @@ Cube.propTypes = {
     right: PropTypes.string,
   }),
   lineColor: PropTypes.string,
+  spacing: PropTypes.number,
 }
 
 Cube.defaultProps = {
   scramble: '',
   puzzle: 3,
-  size: 100,
+  size: 200,
   lineWidth: 1,
-  editable: false,
-  rotate: '',
   colorScheme: {
     up: White,
     down: Yellow,
@@ -138,6 +148,7 @@ Cube.defaultProps = {
     right: Red,
   },
   lineColor: Black,
+  spacing: 0.9,
 }
 
 export default Cube
