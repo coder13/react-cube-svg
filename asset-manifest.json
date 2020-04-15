@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-cube-svg/static/css/main.69f80697.chunk.css",
+    "main.js": "/react-cube-svg/static/js/main.eaa929ff.chunk.js",
+    "main.js.map": "/react-cube-svg/static/js/main.eaa929ff.chunk.js.map",
+    "runtime-main.js": "/react-cube-svg/static/js/runtime-main.844dc549.js",
+    "runtime-main.js.map": "/react-cube-svg/static/js/runtime-main.844dc549.js.map",
+    "static/js/2.0da20fdc.chunk.js": "/react-cube-svg/static/js/2.0da20fdc.chunk.js",
+    "static/js/2.0da20fdc.chunk.js.map": "/react-cube-svg/static/js/2.0da20fdc.chunk.js.map",
+    "index.html": "/react-cube-svg/index.html",
+    "precache-manifest.39bab8b7d37248b7564043eb3d8df064.js": "/react-cube-svg/precache-manifest.39bab8b7d37248b7564043eb3d8df064.js",
+    "service-worker.js": "/react-cube-svg/service-worker.js",
+    "static/css/main.69f80697.chunk.css.map": "/react-cube-svg/static/css/main.69f80697.chunk.css.map",
+    "static/js/2.0da20fdc.chunk.js.LICENSE.txt": "/react-cube-svg/static/js/2.0da20fdc.chunk.js.LICENSE.txt",
+    "static/js/main.eaa929ff.chunk.js.LICENSE.txt": "/react-cube-svg/static/js/main.eaa929ff.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.844dc549.js",
+    "static/js/2.0da20fdc.chunk.js",
+    "static/css/main.69f80697.chunk.css",
+    "static/js/main.eaa929ff.chunk.js"
+  ]
+}
