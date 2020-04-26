@@ -49,7 +49,7 @@ Face.propTypes = {
   lineColor: PropTypes.string.isRequired,
   lineWidth: PropTypes.number.isRequired,
   puzzle: PropTypes.number.isRequired,
-  size: PropTypes.size,
+  size: PropTypes.number,
 }
 
 const Cube = ({
