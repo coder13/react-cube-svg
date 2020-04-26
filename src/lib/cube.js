@@ -201,7 +201,6 @@ class Cube {
 
   getFace(face) {
     const { corners, edges, centers } = this
-    console.log(edges)
     return Faces[face](
       corners.perm,
       corners.orient,
