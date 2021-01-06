@@ -60,6 +60,7 @@ const Cube = ({
   lineColor,
   lineWidth,
   spacing,
+  ...props
 }) => {
   const state = new CubeState(scramble)
 
@@ -100,7 +101,7 @@ const Cube = ({
   ]
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${puzzle * 4} ${puzzle * 4}`}>
+    <svg width={size} height={size * 3 / 4} viewBox={`0 0 ${puzzle * 4} ${puzzle * 3}`} {...props}>
       {faces.map(({ face, x, y }) => (
         <Face
           key={face}

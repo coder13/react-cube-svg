@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Cube } from 'react-cube-svg'
-import 'react-cube-svg/dist/index.css'
+//import 'react-cube-svg/dist/index.css'
 
 const App = () => {
   const [scramble, setScramble] = React.useState('');
