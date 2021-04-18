@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import CubeState from './lib/cube'
+import Face from './Face';
 
 /* Colors: */
 const Black = '#000000'
@@ -10,47 +11,6 @@ const Red = '#EE0000'
 const Orange = '#FFA100'
 const Blue = '#0000F2'
 const Green = '#00D800'
-
-const Sticker = ({ x, y, size, style }) => {
-  return <rect x={x} y={y} width={size} height={size} style={style} />
-}
-
-Sticker.propTypes = {
-  x: PropTypes.number,
-  y: PropTypes.number,
-}
-
-const Face = ({ x, y, puzzle, lineColor, lineWidth, state, size }) => {
-  return (
-    <React.Fragment>
-      {state.map((row, _x) =>
-        state.map((col, _y) => (
-          <Sticker
-            key={_x * puzzle + _y}
-            x={size + x + _x * size + (1 - 2 * size)}
-            y={size + y + _y * size + (1 - 2 * size)}
-            size={size}
-            style={{
-              fill: state[_y][_x],
-              stroke: lineColor,
-              strokeWidth: lineWidth / 64,
-            }}
-          />
-        ))
-      )}
-    </React.Fragment>
-  )
-}
-
-Face.propTypes = {
-  x: PropTypes.number.isRequired,
-  y: PropTypes.number.isRequired,
-  state: PropTypes.arrayOf(PropTypes.array).isRequired,
-  lineColor: PropTypes.string.isRequired,
-  lineWidth: PropTypes.number.isRequired,
-  puzzle: PropTypes.number.isRequired,
-  size: PropTypes.number,
-}
 
 const Cube = ({
   scramble,
@@ -101,7 +61,12 @@ const Cube = ({
   ]
 
   return (
-    <svg width={size} height={size * 3 / 4} viewBox={`0 0 ${puzzle * 4} ${puzzle * 3}`} {...props}>
+    <svg
+      width={size}
+      height={(size * 3) / 4}
+      viewBox={`0 0 ${puzzle * 4} ${puzzle * 3}`}
+      {...props}
+    >
       {faces.map(({ face, x, y }) => (
         <Face
           key={face}
