@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CubeState from './lib/cube'
-import Face from './Face';
+import CubeState from '../lib/cube'
+import Face from './common/Face';
 
 /* Colors: */
 const Black = '#000000'

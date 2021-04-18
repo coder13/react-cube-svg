@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Cube } from 'react-cube-svg'
-//import 'react-cube-svg/dist/index.css'
+import { Puzzle } from 'react-cube-svg'
+// import 'react-cube-svg/dist/index.css'
 
 const App = () => {
   const [scramble, setScramble] = React.useState('');
@@ -18,7 +18,7 @@ const App = () => {
           <input type="text" name="scramble" value={scramble} onChange={handleChange} />
         </label>
       </form>
-      <Cube scramble={scramble}/>
+      <Puzzle puzzle="333" scramble={scramble}/>
     </div>
   )
 }

@@ -1,14 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-const Sticker = ({ x, y, size, style }) => {
-  return <rect x={x} y={y} width={size} height={size} style={style} />
-}
-
-Sticker.propTypes = {
-  x: PropTypes.number,
-  y: PropTypes.number,
-}
+import Sticker from './Sticker';
 
 const Face = ({ x, y, puzzle, lineColor, lineWidth, state, size }) => {
   return (
@@ -41,3 +33,5 @@ Face.propTypes = {
   puzzle: PropTypes.number.isRequired,
   size: PropTypes.number,
 }
+
+export default Face
